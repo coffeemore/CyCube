@@ -1,19 +1,39 @@
 public class CubeGenerator
 {
+    /**
+     * Klasse zum Erstellen von Quadern
+     */
     private int[] dimensions;
 
+    /**
+     * Konstruktor
+     * @param dimensions
+     */
     public CubeGenerator(int[] dimensions)
     {
         this.dimensions = dimensions;
     }
 
+    /***
+     * Erzeugt STL Informationen aus den Maßen des Quaders
+     * @param dimensions
+     * @return Stl String
+     */
     public String createCube(int[] dimensions)
     {
         String stlResult = "";
+        //Matrix aus dimensions in Punkte des Quaders konvertieren
+        int[][] cubePoints = toMatrix(dimensions);
 
+        //Rueckgabe der Stl Datei
         return stlResult;
     }
 
+    /**
+     *
+     * @param dimensions Maße des Quaders
+     * @return Matrix mit 8 Eckpunkten des Quaders als x,y,z Koordinaten
+     */
     public int[][] toMatrix(int[] dimensions)
     {
         int [][] resultMatrix;
@@ -33,6 +53,10 @@ public class CubeGenerator
         return resultMatrix;
     }
 
+    /**
+     * Einfache ausgabe der Koordinaten.
+     * @param matrixToPrint
+     */
     public void printMatrix(int[][] matrixToPrint)
     {
         for (int[] matrixZeile: matrixToPrint)
@@ -41,7 +65,7 @@ public class CubeGenerator
             {
                 System.out.print(element);
             }
-            System.out.print(";\n");
+            System.out.print("\n");
         }
     }
 }

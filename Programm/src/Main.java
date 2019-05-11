@@ -10,9 +10,19 @@ public class Main
         myCube.printMatrix(myCube.toMatrix(dimensions));
     }
 
+    /**
+     * Erzeugt Stl Datei aus den Resultaten der Geometry Klassen
+     * @param geometryStlData
+     * @return File
+     * @author ggf. File als Seiteneffekt erstellen
+     */
     private File FileCreator(String geometryStlData)
     {
         return null;
     }
+
+    /**
+     * Menue-Dialog als Ausgabe in Console
+     */
     private void cmdMenu(){};
 }
