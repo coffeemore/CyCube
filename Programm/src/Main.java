@@ -6,8 +6,7 @@ public class Main
     {
         int[] dimensions = {1,2,3};
         CubeGenerator myCube = new CubeGenerator(dimensions);
-        myCube.toMatrix(dimensions);
-        myCube.printMatrix(myCube.toMatrix(dimensions));
+        String myString = myCube.createCube(dimensions);
     }
 
     /**

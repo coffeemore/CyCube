@@ -4,6 +4,7 @@ public class CubeGenerator
      * Klasse zum Erstellen von Quadern
      */
     private int[] dimensions;
+    static stlService service; //Instanz der Service-Klasse
 
     /**
      * Konstruktor
@@ -21,11 +22,10 @@ public class CubeGenerator
      */
     public String createCube(int[] dimensions)
     {
-        String stlResult = "";
+        String stlResult="";
         //Matrix aus dimensions in Punkte des Quaders konvertieren
         int[][] cubePoints = toMatrix(dimensions);
-
-        //Rueckgabe der Stl Datei
+        System.out.println(service.toStlEntry(0,6,7,cubePoints));
         return stlResult;
     }
 
