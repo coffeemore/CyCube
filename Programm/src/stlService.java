@@ -1,5 +1,13 @@
 public class stlService
 {
+    /**
+     *
+     * @param rowA Angabe des ersten Vektors
+     * @param rowB Angabe des zweiten Vektors
+     * @param rowC Angabe des dritten Vektors
+     * @param matrix Daten gespeichert in 2d-Array
+     * @return ein Stl Eintrag
+     */
     public static String toStlEntry(int rowA, int rowB, int rowC, int[][] matrix)
     {
         int[] koArrayA = getRow(rowA,matrix);
@@ -19,6 +27,13 @@ public class stlService
         String stlEntry = mySB.toString();
         return stlEntry;
     }
+
+    /**
+     *
+     * @param row zeile auswaehlen
+     * @param matrix Daten gespeichert aus 2d-Array
+     * @return array der koordinaten
+     */
     private static int[] getRow(int row, int[][] matrix)
     {
         int[] koordinaten = new int[3];
@@ -29,6 +44,12 @@ public class stlService
         }
         return koordinaten;
     }
+
+    /**
+     *
+     * @param array wird konvertiert in stl freundliche ausgabe
+     * @return Zeichenkette fuer eintrag in stl fileformat
+     */
     private static String getArrayElAsString(int[] array)
     {
         String s ="";
