@@ -8,14 +8,14 @@ public class stlService
      * @param matrix Daten gespeichert in 2d-Array
      * @return ein Stl Eintrag
      */
-    public static String toStlEntry(int rowA, int rowB, int rowC, int[][] matrix)
+    public static String toStlEntry(int rowA, int rowB, int rowC, double[][] matrix)
     {
-        int[] koArrayA = getRow(rowA,matrix);
-        int[] koArrayB = getRow(rowB,matrix);
-        int[] koArrayC = getRow(rowC,matrix);
+        double[] koArrayA = getRow(rowA,matrix);
+        double[] koArrayB = getRow(rowB,matrix);
+        double[] koArrayC = getRow(rowC,matrix);
         //StringBuilder initialisieren
         StringBuilder mySB = new StringBuilder();
-        mySB.append("facet normal ").append("NORMALE").append("\n");
+        mySB.append("facet normal ").append(getNormal(koArrayA,koArrayB,koArrayC)).append("\n");
         mySB.append("\touter loop\n");
         mySB.append("\t\tvertex ").append(getArrayElAsString(koArrayA)).append("\n");
         mySB.append("\t\tvertex ").append(getArrayElAsString(koArrayB)).append("\n");
@@ -34,9 +34,9 @@ public class stlService
      * @param matrix Daten gespeichert aus 2d-Array
      * @return array der koordinaten
      */
-    private static int[] getRow(int row, int[][] matrix)
+    private static double[] getRow(int row, double[][] matrix)
     {
-        int[] koordinaten = new int[3];
+        double[] koordinaten = new double[3];
         for (int i = 0; i < 3; i++)
         {
             koordinaten[i] = matrix[row][i];
@@ -50,13 +50,39 @@ public class stlService
      * @param array wird konvertiert in stl freundliche ausgabe
      * @return Zeichenkette fuer eintrag in stl fileformat
      */
-    private static String getArrayElAsString(int[] array)
+    private static String getArrayElAsString(double[] array)
     {
         String s ="";
-        for ( int element : array)
+        for ( double element : array)
         {
             s+=element+" ";
         }
         return s;
+    }
+
+    private static String getNormal(double[] koArrayA, double[] koArrayB, double[] koArrayC)
+    {
+        if (getArrayElAsString(koArrayA).equals("0.0 0.0 0.0 "))
+        {
+            return getKreuzprod(koArrayB, koArrayC);
+        }
+        else if (getArrayElAsString(koArrayB).equals("0.0 0.0 0.0 "))
+        {
+            return getKreuzprod(koArrayA, koArrayC);
+        }
+        else {
+            return getKreuzprod(koArrayA, koArrayB);
+        }
+    }
+
+    private static String getKreuzprod(double[] u, double[] t)
+    {
+        double[] kProd =
+                {
+                        u[1]*t[2]-u[2]*t[1],
+                        u[2]*t[0]-u[1]*t[2],
+                        u[0]*t[1]-u[1]*t[0],
+                };
+        return getArrayElAsString(kProd);
     }
 }

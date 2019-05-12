@@ -4,9 +4,9 @@ public class Main
 {
     public static void main(String[] args)
     {
-        int[] dimensions = {1,2,3};
+        int[] dimensions = {5,5,5};
         CubeGenerator myCube = new CubeGenerator(dimensions);
-        String myString = myCube.createCube(dimensions);
+        System.out.println(myCube.createCube(dimensions));
     }
 
     /**
