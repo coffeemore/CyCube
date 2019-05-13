@@ -1,4 +1,7 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main
 {
@@ -7,6 +10,7 @@ public class Main
         int[] dimensions = {5,5,5};
         CubeGenerator myCube = new CubeGenerator(dimensions);
         System.out.println(myCube.createCube(dimensions));
+        FileCreator(myCube.createCube(dimensions));
     }
 
     /**
@@ -15,9 +19,21 @@ public class Main
      * @return File
      * @author ggf. File als Seiteneffekt erstellen
      */
-    private File FileCreator(String geometryStlData)
+    private static void FileCreator(String geometryStlData)
     {
-        return null;
+        File file = new File("./test.stl");
+
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter(file));
+            bw.write(geometryStlData);
+            bw.flush();
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("File not created \n Error: " + e);
+        }
+
     }
 
     /**
