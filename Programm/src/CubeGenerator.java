@@ -27,16 +27,16 @@ public class CubeGenerator
         double[][] cubePoints = toMatrix(dimensions);
         //Unten
         stlResult += service.toStlEntry(0,1,2,cubePoints);
-        stlResult += service.toStlEntry(1,2,3,cubePoints);
+        stlResult += service.toStlEntry(0,2,3,cubePoints);
         //Oben
         stlResult += service.toStlEntry(4,5,6,cubePoints);
-        stlResult += service.toStlEntry(5,6,7,cubePoints);
+        stlResult += service.toStlEntry(4,6,7,cubePoints);
         //Innen
-        stlResult += service.toStlEntry(0,2,4,cubePoints);
-        stlResult += service.toStlEntry(2,4,6,cubePoints);
+        stlResult += service.toStlEntry(0,3,4,cubePoints);
+        stlResult += service.toStlEntry(3,4,7,cubePoints);
         //Rechts
-        stlResult += service.toStlEntry(1,3,5,cubePoints);
-        stlResult += service.toStlEntry(3,5,7,cubePoints);
+        stlResult += service.toStlEntry(1,2,5,cubePoints);
+        stlResult += service.toStlEntry(2,5,6,cubePoints);
         //Vorn
         stlResult += service.toStlEntry(0,1,4,cubePoints);
         stlResult += service.toStlEntry(1,4,5,cubePoints);
