@@ -88,7 +88,6 @@ public class stlService
         for (int i = 0; i < 3; i++)
         {
             koordinaten[i] = matrix[row][i];
-            System.out.println(matrix[row][i]);
         }
         return koordinaten;
     }
