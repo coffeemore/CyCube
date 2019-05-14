@@ -4,9 +4,15 @@ public class Main
 {
     public static void main(String[] args)
     {
+        //Beispiel Cube
         int[] dimensions = {5,5,5};
         CubeGenerator myCube = new CubeGenerator(dimensions);
         System.out.println(myCube.createCube(dimensions));
+
+        //Beispiel Cylinder
+        CylinderGenerator myCylinder = new CylinderGenerator(2, 10);
+        System.out.println(myCylinder.createCylinder(2,5,6));
+
     }
 
     /**
