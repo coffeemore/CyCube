@@ -1,18 +1,14 @@
 public class CubeGenerator
 {
     /**
-     * Klasse zum Erstellen von Quadern
+     * Klasse zum Erstellen von Quader-Objekten als stlFile
      */
-    private int[] dimensions;
-    static stlService service; //Instanz der Service-Klasse
 
     /**
      * Konstruktor
-     * @param dimensions
      */
-    public CubeGenerator(int[] dimensions)
+    public CubeGenerator()
     {
-        this.dimensions = dimensions;
     }
 
     /***
@@ -26,23 +22,23 @@ public class CubeGenerator
         //Matrix aus dimensions in Punkte des Quaders konvertieren
         double[][] cubePoints = toMatrix(dimensions);
         //Unten
-        stlResult += service.toStlEntry(0,1,2,cubePoints);
-        stlResult += service.toStlEntry(0,2,3,cubePoints);
+        stlResult += stlService.toStlEntry(0,1,2,cubePoints);
+        stlResult += stlService.toStlEntry(0,2,3,cubePoints);
         //Oben
-        stlResult += service.toStlEntry(4,5,6,cubePoints);
-        stlResult += service.toStlEntry(4,6,7,cubePoints);
+        stlResult += stlService.toStlEntry(4,5,6,cubePoints);
+        stlResult += stlService.toStlEntry(4,6,7,cubePoints);
         //Innen
-        stlResult += service.toStlEntry(0,3,4,cubePoints);
-        stlResult += service.toStlEntry(3,4,7,cubePoints);
+        stlResult += stlService.toStlEntry(0,3,4,cubePoints);
+        stlResult += stlService.toStlEntry(3,4,7,cubePoints);
         //Rechts
-        stlResult += service.toStlEntry(1,2,5,cubePoints);
-        stlResult += service.toStlEntry(2,5,6,cubePoints);
+        stlResult += stlService.toStlEntry(1,2,5,cubePoints);
+        stlResult += stlService.toStlEntry(2,5,6,cubePoints);
         //Vorn
-        stlResult += service.toStlEntry(0,1,4,cubePoints);
-        stlResult += service.toStlEntry(1,4,5,cubePoints);
+        stlResult += stlService.toStlEntry(0,1,4,cubePoints);
+        stlResult += stlService.toStlEntry(1,4,5,cubePoints);
         //Hint
-        stlResult += service.toStlEntry(2,3,6,cubePoints);
-        stlResult += service.toStlEntry(3,6,7,cubePoints);
+        stlResult += stlService.toStlEntry(2,3,6,cubePoints);
+        stlResult += stlService.toStlEntry(3,6,7,cubePoints);
         return stlResult;
     }
 
