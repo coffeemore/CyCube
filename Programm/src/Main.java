@@ -88,8 +88,8 @@ public class Main
         FileCreator(myCube.createCube(dimensions));*/
 
         //Beispiel Cylinder
-        CylinderGenerator myCylinder = new CylinderGenerator(2, 10);
-        System.out.println(myCylinder.createCylinder(2,5,6));
+        CylinderGenerator myCylinder = new CylinderGenerator();
+        FileCreator(myCylinder.createCylinder(2,5,100));
 
     }
 

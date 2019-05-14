@@ -27,7 +27,55 @@ public class stlService
         String stlEntry = mySB.toString();
         return stlEntry;
     }
+    /**
+     *
+     * @param rowAPunkt Angabe des ersten Vektors als Array - hier Ortsvektor
+     * @param rowB Angabe des zweiten Vektors
+     * @param rowC Angabe des dritten Vektors
+     * @param matrix Daten gespeichert in 2d-Array
+     * @return ein Stl Eintrag
+     */
+    public static String toStlEntryCy(double[] rowAPunkt, int rowB, int rowC, double[][] matrix)
+    {
+        double[] koArrayB = getRow(rowB,matrix);
+        double[] koArrayC = getRow(rowC,matrix);
+        //StringBuilder initialisieren
+        StringBuilder mySB = new StringBuilder();
+        mySB.append("facet normal ").append(getNormal(rowAPunkt,koArrayB,koArrayC)).append("\n");
+        mySB.append("\touter loop\n");
+        mySB.append("\t\tvertex ").append(getArrayElAsString(rowAPunkt)).append("\n");
+        mySB.append("\t\tvertex ").append(getArrayElAsString(koArrayB)).append("\n");
+        mySB.append("\t\tvertex ").append(getArrayElAsString(koArrayC)).append("\n");
+        mySB.append("\tendloop\n");
+        mySB.append("endfacet\n");
 
+        //Stringobjekt als Ergebnis packen
+        String stlEntry = mySB.toString();
+        return stlEntry;
+    }
+    /**
+     *
+     * @param rowA Angabe des ersten Vektors
+     * @param rowB Angabe des zweiten Vektors
+     * @param rowC Angabe des dritten Vektors
+     * @return ein Stl Eintrag
+     */
+    public static String toStlEntryCy(double[] rowA, double[] rowB,double[] rowC)
+    {
+        //StringBuilder initialisieren
+        StringBuilder mySB = new StringBuilder();
+        mySB.append("facet normal ").append(getNormal(rowA,rowB,rowC)).append("\n");
+        mySB.append("\touter loop\n");
+        mySB.append("\t\tvertex ").append(getArrayElAsString(rowA)).append("\n");
+        mySB.append("\t\tvertex ").append(getArrayElAsString(rowB)).append("\n");
+        mySB.append("\t\tvertex ").append(getArrayElAsString(rowC)).append("\n");
+        mySB.append("\tendloop\n");
+        mySB.append("endfacet\n");
+
+        //Stringobjekt als Ergebnis packen
+        String stlEntry = mySB.toString();
+        return stlEntry;
+    }
     /**
      *
      * @param row zeile auswaehlen
