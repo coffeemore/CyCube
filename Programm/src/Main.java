@@ -11,8 +11,7 @@ public class Main
         int[] dimensions = {5,5,5};
         CubeGenerator myCube = new CubeGenerator(dimensions);
         System.out.println(myCube.createCube(dimensions));
-	FileCreator(myCube.createCube(dimensions));
-
+	    FileCreator(myCube.createCube(dimensions));
 
         //Beispiel Cylinder
         CylinderGenerator myCylinder = new CylinderGenerator(2, 10);

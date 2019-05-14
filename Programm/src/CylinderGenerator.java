@@ -46,7 +46,7 @@ public class CylinderGenerator
         }
         cubeGenerator.printMatrix(kreisObenMatrix);
         */
-        cubeGenerator.printMatrix(kreisUntenMatrix);
+        stlService.printMatrix(kreisUntenMatrix);
 
         return stlResult;
     }

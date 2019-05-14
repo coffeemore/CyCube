@@ -85,4 +85,21 @@ public class stlService
                 };
         return getArrayElAsString(kProd);
     }
+
+
+    /**
+     * Einfache ausgabe der Koordinaten.
+     * @param matrixToPrint
+     */
+    public static void printMatrix(double[][] matrixToPrint)
+    {
+        for (double[] matrixZeile: matrixToPrint)
+        {
+            for (double element: matrixZeile)
+            {
+                System.out.print(element+" ");
+            }
+            System.out.print("\n");
+        }
+    }
 }
